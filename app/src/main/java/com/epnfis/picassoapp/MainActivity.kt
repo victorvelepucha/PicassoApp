@@ -13,6 +13,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +47,12 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = animalAdapter
+
+        MobileAds.initialize(this) {}
+        //mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adViewBannerPrincipal.loadAd(adRequest)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
